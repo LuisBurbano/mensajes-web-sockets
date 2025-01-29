@@ -1,12 +1,16 @@
 package com.mensajeria.mensajes.model;
 
-public record Message(String name, String content, String type) {
+import lombok.*;
 
-    public static Message connected(String name) {
-        return new Message(name, "se ha conectado", "CONNECT");
-    }
-
-    public static Message disconnected(String name) {
-        return new Message(name, "se ha desconectado", "DISCONNECT");
-    }
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+public class Message {
+    private String senderName;
+    private String receiverName;
+    private String message;
+    private String date;
+    private Status status;
 }
